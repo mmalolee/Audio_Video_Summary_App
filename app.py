@@ -7,7 +7,17 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import PointStruct, VectorParams, Distance
 from hashlib import md5
 
+
+###########
+# SECRETS #
+###########
+
 env = dotenv_values('.env')
+
+if 'QDRANT_URL' in st.secrets:
+    env['QDRANT_URL'] = st.secrets['QDRANT_URL']
+if 'QDRANT_API' in st.secrets:
+    env['QDRANT_API'] = st.secrets['QDRANT_API']
 
 
 #############
